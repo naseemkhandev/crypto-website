@@ -7,7 +7,10 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
 	return (
-		<div className="w-full h-full relative bg-gradient-to-b from-[#DCE7FF] via-[#DCE7FF] to-transparent dark:from-[#111847] dark:via-[#111847] dark:to-transparent z-[0]">
+		<div
+			id="home"
+			className="w-full h-full relative bg-gradient-to-b from-[#DCE7FF] via-[#DCE7FF] to-transparent dark:from-[#111847] dark:via-[#111847] dark:to-transparent z-[0]"
+		>
 			<Image
 				src="/hero/hero-shape-1.svg"
 				alt="hero shape"

@@ -14,15 +14,19 @@ const Details = ({ title, desc1, desc2 }: DetailsProps) => {
 			<h4 className="capitalize font-semibold text-[#131B4D] dark:text-white mb-3">
 				{title}
 			</h4>
-			<p className="text-xs sm:text-sm font-[500] text-black/80 dark:text-white/70 mt-1">{desc1}</p>
-			<p className="text-xs sm:text-sm font-[500] text-black/80 dark:text-white/70 mt-1">{desc2}</p>
+			<p className="text-xs sm:text-sm font-[500] text-black/80 dark:text-white/70 mt-1">
+				{desc1}
+			</p>
+			<p className="text-xs sm:text-sm font-[500] text-black/80 dark:text-white/70 mt-1">
+				{desc2}
+			</p>
 		</div>
 	);
 };
 
 const Contact = () => {
 	return (
-		<div className="py-10 relative overflow-x-hidden">
+		<div id="contact" className="py-10 relative overflow-x-hidden">
 			<div className="container mx-auto px-5 md:px-10 flex items-center justify-between gap-10 sm:gap-20 md:gap-10 lg:gap-32 flex-col md:flex-row">
 				<div className="flex flex-col gap-1 md:gap-3 w-full">
 					<p className="uppercase text-lg text-blue-500 font-semibold">

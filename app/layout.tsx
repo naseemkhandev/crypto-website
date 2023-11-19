@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const poppins = Poppins({
 	subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
 				>
 					<Navbar />
 					{children}
+					<ScrollToTop />
 					<Footer />
 				</ThemeProvider>
 			</body>

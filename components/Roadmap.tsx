@@ -70,7 +70,7 @@ const Dot = ({ dotClasses, smallDot }: DotProps) => {
 			/>
 			<span
 				className={cn(
-					"absolute top-1/2 -right-[2.75rem] md:-right-[4.3rem] -translate-y-1/2 hidden bg-[#F5F8FF] w-2 h-2 rounded-full sm:block",
+					"absolute top-1/2 -right-[2.7rem] md:-right-[4.3rem] -translate-y-1/2 hidden bg-[#F5F8FF] w-2 h-2 rounded-full sm:block",
 					smallDot
 				)}
 			/>
@@ -82,7 +82,7 @@ const Roadmap = () => {
 	const date = new Date().getFullYear();
 
 	return (
-		<div className="py-16 relative">
+		<div id="roadmap" className="py-16 relative">
 			<Image
 				src="/timeline-shape.svg"
 				width={500}

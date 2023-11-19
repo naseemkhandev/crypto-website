@@ -29,7 +29,7 @@ const Card = ({ icon: Icon, title }: CardProps) => {
 
 const Features = () => {
 	return (
-		<div className="mt-10 md:mt-0 py-16">
+		<div id="features" className="mt-10 md:mt-0 py-16">
 			<div className="container mx-auto px-5 md:px-10">
 				<Title
 					title1="core features"

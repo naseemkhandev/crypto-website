@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiOutlineMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 
@@ -12,11 +12,40 @@ import { ToggleTheme } from "./ToggleTheme";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
-	const [menu, setMenu] = useState(false);
+	const [menu, setMenu] = useState<boolean>(false);
+	const navbar = useRef<HTMLDivElement | null>(null);
 	const { theme } = useTheme();
 
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.pageYOffset >= 50) {
+				if (navbar.current) {
+					navbar.current.classList.add(
+						"bg-[#ffffffb8]",
+						"dark:bg-[#111847e1]",
+						"backdrop-blur-sm"
+					);
+				}
+			} else {
+				if (navbar.current) {
+					navbar.current.classList.remove(
+						"bg-[#ffffffb8]",
+						"dark:bg-[#111847e1]",
+						"backdrop-blur-sm"
+					);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	return (
-		<div className="w-full fixed top-0 left-0 z-10 bg-[#ffffffb8] dark:bg-[#111847e1] backdrop-blur-sm">
+		<div ref={navbar} className="w-full select-none fixed top-0 left-0 z-10">
 			<div className="flex items-center justify-between container px-5 md:px-10 py-3 mx-auto z-10">
 				<Link href="/">
 					<Image
@@ -30,7 +59,7 @@ const Navbar = () => {
 
 				<ul
 					className={cn(
-						"flex lg:items-center gap-7 lg:gap-10 capitalize font-[500] lg:relative fixed top-0 bg-white dark:bg-[#111847] backdrop-blur-2xl lg:backdrop-blur-0 h-screen lg:w-fit lg:h-fit lg:bg-transparent dark:lg:bg-transparent z-[80] w-full sm:w-80 shadow-md flex-col lg:flex-row py-32 px-5 transition-all duration-500 lg:p-0 lg:shadow-none lg:left-0",
+						"flex lg:items-center gap-7 lg:gap-10 capitalize font-[500] lg:relative fixed top-0 dark:bg-[#111847] bg-white h-screen lg:w-fit lg:h-fit dark:lg:bg-transparent lg:bg-transparent z-[80] w-full sm:w-80 shadow-md flex-col lg:flex-row py-32 px-5 transition-all duration-500 lg:p-0 lg:shadow-none lg:left-0",
 						menu ? "left-0" : "-left-full"
 					)}
 				>
@@ -55,6 +84,7 @@ const Navbar = () => {
 					<Link
 						href="https://naseemkhan.vercel.app/"
 						target="_blank"
+						rel="noopener noreferrer"
 						className="block w-full h-full"
 					>
 						<Button
